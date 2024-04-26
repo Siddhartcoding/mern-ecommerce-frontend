@@ -1,0 +1,105 @@
+.container {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  padding-left: 1rem; /* 16px */
+  padding-right: 1rem; /* 16px */
+  box-sizing: border-box;
+
+  > main {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: -0.3125rem; /* Adjust as needed */
+    padding-bottom: 2.5rem; /* Adjust as needed */
+    background-color: #fff;
+    padding: 1rem;
+
+    > .product-img {
+      display: flex;
+      justify-content: center;
+
+      > img {
+        width: 100%; /* Adjusted to make the image responsive */
+        max-width: 100%; /* Ensures image doesn't overflow container */
+        height: auto; /* Maintains aspect ratio */
+      }
+    }
+
+    > .product-info {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      justify-content: center;
+
+      @media (min-width: 768px) {
+        grid-column: span 2;
+      }
+
+      @media (min-width: 1280px) {
+        grid-column: span 3;
+        padding: 14px;
+      }
+
+      > h1 {
+        font-size: 2.55rem; /* 36px */
+        line-height: 2.5rem; /* 40px */
+        font-weight: 600;
+      }
+
+      > h2 {
+        font-size: 2rem;
+        color: #827e7e;
+      }
+
+      > button {
+        width: 100%;
+        padding: 1rem;
+        background-color: $color3; /* Assuming $color3 is defined */
+        color: white;
+        font-size: 1.25rem; /* 20px */
+        font-family: "Roboto", sans-serif;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #000;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .container > main {
+    grid-template-columns: 1fr 1fr; /* Two columns for medium screens */
+  }
+
+  .container > main > .product-img {
+    order: 1; /* Image comes first */
+  }
+
+  .container > main > .product-info {
+    order: 2; /* Product info comes second */
+  }
+}
+
+@media (min-width: 1280px) {
+  .container > main {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .container > main > .product-info {
+    grid-column: span 2;
+    margin-left: 65%; /* Add margin to the left for gap */
+  }
+  .container > main > .product-img {
+    padding-left: 2rem;
+    margin-right: -6.5rem;
+  }
+}
