@@ -7,7 +7,6 @@ export interface UserReducerInitialState {
 
 export interface CartReducerInitialState {
   loading: boolean;
-  isRefetch: boolean;
   cartItems: CartItem[];
   subtotal: number;
   tax: number;
